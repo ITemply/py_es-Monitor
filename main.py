@@ -1,4 +1,5 @@
 import requests
+import cv2
 import easyocr
 
 esPlace = 2262441883
@@ -8,8 +9,9 @@ def getJobs(placeId):
   return newRequest
 
 def scanImage(pathTo):
-  reader = easyocr.Reader(['ch_tra', 'en'])
-  result = reader.readtext(pathTo)
-  print(result)
+  img = cv2.imread(pathTo)
+  reader = easyocr.Reader(['en'], gpu=False)
+  text = reader.readtext(img)
+  print(text)
 
 scanImage('images/image.png')
