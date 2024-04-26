@@ -1,4 +1,5 @@
 import requests
+import easyocr
 
 esPlace = 2262441883
 
@@ -7,4 +8,8 @@ def getJobs(placeId):
   return newRequest
 
 def scanImage(pathTo):
-  #scaner
+  reader = easyocr.Reader(['ch_tra', 'en'])
+  result = reader.readtext(pathTo)
+  print(result)
+
+scanImage('images/image.png')
