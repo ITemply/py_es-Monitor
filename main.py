@@ -7,4 +7,4 @@ def getJobs(placeId):
   return newRequest
 
 def scanImage(pathTo):
-  
+  #scan
